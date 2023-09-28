@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.github.kandefromparis.khool.jpms.sample</groupId>
+        <version>17.5-SNAPSHOT</version>
+        <artifactId>app</artifactId>
+    </parent>
+    <artifactId>mod-jlink</artifactId>
+    <packaging>jlink</packaging>
+
+    <name>mod-jlink</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.parent.groupId}</groupId>
+            <artifactId>data-sample-mod</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.parent.groupId}</groupId>
+            <artifactId>data-sample-service-mod</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.parent.groupId}</groupId>
+            <artifactId>data-sample-service-impl-mod</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.parent.groupId}</groupId>
+            <artifactId>data-app</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-jlink-plugin</artifactId>
+                <version>3.1.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <compress>2</compress>
+                    <launcher>launcher=io.github.kandefromparis.khool.jpms.sample/io.github.kandefromparis.khool.jpms.sample.DataApp</launcher>
+                    <!-- configuration elements goes here -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
